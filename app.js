@@ -2,20 +2,14 @@ var express = require('express');
 var body_parser = require('body-parser');
 
 var app  = express();
-
-app.set('view engine','ejs');
-
-
-
 /*
 Middlewares, dont worry about this, they are just mediators
 */
-
-app.use(express.static('./public'));
+app.use('/public',express.static(__dirname+ '/public'));
 app.use(body_parser.json());
-app.use(body_parser.urlencoded({extented: false}));
+app.use(body_parser.urlencoded({extented: true}));
 
-
+app.set('view engine','ejs');
 //Route handling get request for the game page
 
 app.get('/',function (req,res) {
