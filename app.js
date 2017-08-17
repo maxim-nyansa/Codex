@@ -1,6 +1,6 @@
 var express = require('express');
 var body_parser = require('body-parser');
-
+//var api = require('./public/api/game-api.js');
 var app  = express();
 /*
 Middlewares, dont worry about this, they are just mediators
@@ -22,6 +22,10 @@ app.get('/',function (req,res) {
 //Route handling get request for the game page
 app.get('/game',function (req,res) {
   res.render('game');
+});
+
+app.get('/api',function (req,res) {
+   //res.send(api);
 });
 
 //Route handling get request for the simulation page
